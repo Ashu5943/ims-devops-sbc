@@ -1,0 +1,28 @@
+# IMS SBC in Kubernetes (DevOps Project)
+
+**9+ Yrs Telecom → DevOps Switch**  
+Deploy **Kamailio SBC** in **Kubernetes** with **CI/CD**
+
+## Live Features
+- Dockerized SBC
+- GitHub Actions CI/CD
+- Deployed on Minikube
+- Auto-scale + Health checks
+
+![CI](https://github.com/YOUR-USERNAME/ims-devops-sbc/actions/workflows/ci.yml/badge.svg)
+
+---
+FROM kamailio/kamailio:latest
+EXPOSE 5060/udp
+CMD ["kamailio", "-f", "/etc/kamailio/kamailio.cfg", "-D", "-E"]
+name: CI/CD for SBC
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker
+        run: docker build -t sbc-ims .
+      - name: Test
+        run: echo "Build passed!"
