@@ -1,0 +1,3 @@
+FROM kamailio/kamailio:latest
+EXPOSE 5060/udp
+CMD ["kamailio", "-f", "/etc/kamailio/kamailio.cfg", "-D", "-E"]
