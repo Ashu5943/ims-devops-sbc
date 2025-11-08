@@ -26,3 +26,6 @@ jobs:
         run: docker build -t sbc-ims .
       - name: Test
         run: echo "Build passed!"
+Commit changes
+
+[ ] Remove combined file
